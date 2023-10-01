@@ -53,7 +53,7 @@ public class AsteroidsGame implements GameScene, ActionListener {
 		game.addController(rocket);
 		game.start();
 		game.setSize(WIDTH, HEIGHT);
-		rof = new Timer(100, this);
+		rof = new Timer(0, this);
 		spawner = new Timer(5000, this);
 		spawner.start();
 		asteroids.add(new Enemy(50, 50));
@@ -109,7 +109,6 @@ public class AsteroidsGame implements GameScene, ActionListener {
 	public void draw(Graphics g) {
 		//g.fillRect(0, 0, WIDTH, HEIGHT);
 		g.drawImage(sky,0, 0, WIDTH, HEIGHT,null);
-
 		for (Enemy asteroid : asteroids) {
 			asteroid.draw(g);
 		}
@@ -120,6 +119,8 @@ public class AsteroidsGame implements GameScene, ActionListener {
 		g.setColor(Color.black);
 		g.drawString("score: " + score, 50, 50);
 		g.drawString("Lives: " + lives, WIDTH - 100, 50);
+		g.setColor(Color.YELLOW);
+		g.drawRect(rocket.x, rocket.y, rocket.collisionBox.width, rocket.collisionBox.height);
 		update();
 		if (lives < 0) {
 			g.setColor(Color.BLACK);

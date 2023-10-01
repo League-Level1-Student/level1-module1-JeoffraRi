@@ -28,7 +28,7 @@ static{
 
 		speed = random.nextInt(10) + 5;
 
-		collisionBox = new Rectangle(x - RADIUS, y - RADIUS, DIAMETER, DIAMETER);
+		collisionBox = new Rectangle(x - RADIUS - 80, y - RADIUS-60, DIAMETER, DIAMETER);
 
 		angle = random.nextInt(360);
 		xSpeed = (int) (Math.cos(Math.toRadians(angle)) * speed);
@@ -37,7 +37,6 @@ static{
 	
 	static void loadImage(String imageFile) {
 		 
-        try {
             su57 = ImageIO.read(Enemy.class.getResourceAsStream(imageFile));
 	  
         } catch (Exception e) {
@@ -62,15 +61,18 @@ static{
 		RADIUS = radius;
 		DIAMETER = radius * 2;
 		speed = random.nextInt(10) + 5;
-
-		collisionBox = new Rectangle(x - RADIUS, y - RADIUS, DIAMETER, DIAMETER);
-
+		if (isShot) {
+		collisionBox = new Rectangle(x - RADIUS - 50, y - RADIUS+50, DIAMETER+30, DIAMETER);
+		}else {
+			collisionBox = new Rectangle(x - RADIUS - 70, y - RADIUS-70, DIAMETER, DIAMETER);
+		}
 		angle = random.nextInt(360);
-		xSpeed = (int) (Math.cos(Math.toRadians(angle)) * speed);
+		xSpeed 
+		= (int) (Math.cos(Math.toRadians(angle)) * speed);
 		ySpeed = (int) (Math.sin(Math.toRadians(angle)) * speed);
 	}
 
-	void update() {
+	void update() { 
 		x += xSpeed;
 		y += ySpeed;
 
@@ -87,12 +89,16 @@ static{
 	}
 
 	void draw(Graphics g) {
+	
 		g.setColor(Color.WHITE);
 		if (isShot==false) {
 		g.drawImage(su57,x - RADIUS, y - RADIUS, 80, 120, null);
+
 		}else {
 		g.drawImage(mig15,x - RADIUS, y - RADIUS, 90, 50, null);	
 		}
+		g.setColor(Color.YELLOW);
+		g.drawRect(this.x, this.y, this.collisionBox.width, this.collisionBox.height);
 		
 	}
 
