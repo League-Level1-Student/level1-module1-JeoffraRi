@@ -1,6 +1,7 @@
 package _01_thejavajetgame;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
@@ -27,8 +28,8 @@ static{
 		this.y = y;
 
 		speed = random.nextInt(10) + 5;
-
-		collisionBox = new Rectangle(x - RADIUS - 80, y - RADIUS-60, DIAMETER, DIAMETER);
+		//Su-57 (Starter) \/
+		collisionBox = new Rectangle(x - RADIUS - 120, y - RADIUS-70, DIAMETER, DIAMETER);
 
 		angle = random.nextInt(360);
 		xSpeed = (int) (Math.cos(Math.toRadians(angle)) * speed);
@@ -37,12 +38,15 @@ static{
 	
 	static void loadImage(String imageFile) {
 		 
-            su57 = ImageIO.read(Enemy.class.getResourceAsStream(imageFile));
-	  
-        } catch (Exception e) {
-         
+            try {
+				su57 = ImageIO.read(Enemy.class.getResourceAsStream(imageFile));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	           
     }
-}
+
 	
 	static void loadMig(String imageFile) {
 		 
@@ -62,9 +66,11 @@ static{
 		DIAMETER = radius * 2;
 		speed = random.nextInt(10) + 5;
 		if (isShot) {
-		collisionBox = new Rectangle(x - RADIUS - 50, y - RADIUS+50, DIAMETER+30, DIAMETER);
+		//Mig-15 \/ 
+		collisionBox = new Rectangle(x - RADIUS - 50, y - RADIUS+50, DIAMETER, DIAMETER);
 		}else {
-			collisionBox = new Rectangle(x - RADIUS - 70, y - RADIUS-70, DIAMETER, DIAMETER);
+		//Su-57 (Wave) \/
+			collisionBox = new Rectangle(x - RADIUS - 120, y - RADIUS-100, DIAMETER+50, DIAMETER+50);
 		}
 		angle = random.nextInt(360);
 		xSpeed 
