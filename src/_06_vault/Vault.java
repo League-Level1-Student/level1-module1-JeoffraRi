@@ -20,3 +20,4 @@ public class Vault {
 		return guess == secret;
 	}
 }
+
