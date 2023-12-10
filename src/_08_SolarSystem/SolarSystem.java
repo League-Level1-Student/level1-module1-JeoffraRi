@@ -62,12 +62,23 @@ public class SolarSystem implements GameControlScene {
     /*
      * Member variables
      */
+    Color saturnColor = new Color(191, 185, 143);
+    Color jupiterColor = new Color(153, 88, 3);
+    
     int sunX, sunY;
     Long startTimeMs = null;
     Game gameFrame = new Game("Solar System");
+    Planet mercury = new Planet(12,88, Color.GRAY,57);
+    Planet venus = new Planet(12,224, Color.ORANGE,108);
+    Planet earth = new Planet(12,365, Color.BLUE,149);
+    Planet mars = new Planet(12,687, Color.RED,228);
+    Planet jupiter = new Planet(12,4331, jupiterColor,778);
+    Planet saturn = new Planet(12,10747, saturnColor, 1433);
+    Planet uranus = new Planet(12,30589, Color.BLUE,2872);
+    Planet neptune = new Planet(12,5, Color.BLUE,4495);
     
-    Planet earth = new Planet(12);
-    
+   
+    		
     public SolarSystem() {
         gameFrame.setScene(this);
         gameFrame.start();
@@ -117,7 +128,13 @@ public class SolarSystem implements GameControlScene {
         /*
          * Add planets here
          */
+        mercury.draw(g, numDays);
+        venus.draw(g, numDays);
         earth.draw(g, numDays);
+        mars.draw(g, numDays);
+        jupiter.draw(g, numDays);
+        saturn.draw(g, numDays);
+        
     }
     
     @Override

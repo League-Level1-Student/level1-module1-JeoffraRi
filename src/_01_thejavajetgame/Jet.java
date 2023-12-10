@@ -71,7 +71,7 @@ public Jet(int x, int y){
 		Graphics2D graphics2D = (Graphics2D) g;
 		graphics2D.rotate(Math.toRadians(angle), x, y);
 		graphics2D.setColor(Color.WHITE);
-		graphics2D.draw(collisionBox);
+		//graphics2D.draw(collisionBox);
 		graphics2D.drawImage(image, x-40,y-40, 120,80, null);
 		graphics2D.rotate(-Math.toRadians(angle), x, y);
 

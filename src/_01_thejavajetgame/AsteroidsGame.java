@@ -120,7 +120,7 @@ public class AsteroidsGame implements GameScene, ActionListener {
 		g.drawString("score: " + score, 50, 50);
 		g.drawString("Lives: " + lives, WIDTH - 100, 50);
 		g.setColor(Color.YELLOW);
-		g.drawRect(rocket.x, rocket.y, rocket.collisionBox.width, rocket.collisionBox.height);
+		//g.drawRect(rocket.x, rocket.y, rocket.collisionBox.width, rocket.collisionBox.height);
 		update();
 		if (lives < 0) {
 			g.setColor(Color.BLACK);
@@ -147,6 +147,7 @@ public class AsteroidsGame implements GameScene, ActionListener {
 		for (Enemy asteroid : asteroids) {
 			if (asteroid.collisionBox.intersects(rocket.collisionBox)) {
 				lives--;
+				asteroid.isAlive=false;
 				rocket = new Jet();
 				game.addController(rocket);
 			}

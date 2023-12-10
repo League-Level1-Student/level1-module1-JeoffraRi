@@ -104,7 +104,7 @@ static{
 		g.drawImage(mig15,x - RADIUS, y - RADIUS, 90, 50, null);	
 		}
 		g.setColor(Color.YELLOW);
-		g.drawRect(this.x, this.y, this.collisionBox.width, this.collisionBox.height);
+		//g.drawRect(this.x, this.y, this.collisionBox.width, this.collisionBox.height);
 		
 	}
 
