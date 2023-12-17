@@ -47,6 +47,7 @@ import game_tools.GameControlScene;
  * Saturn | 120,536      | 1,433,500,000     | 10,747        | 82
  * Uranus | 51,118       | 2,872,500,000     | 30,589        | 27
  * Neptune| 49,528       | 4,495,100,000     | 59,800        | 14
+ * Pluto  | 2,377        | 6,000,000,000     | 90,520        | 5
  * https://nssdc.gsfc.nasa.gov/planetary/factsheet/
  */
 
@@ -64,6 +65,8 @@ public class SolarSystem implements GameControlScene {
      */
     Color saturnColor = new Color(191, 185, 143);
     Color jupiterColor = new Color(153, 88, 3);
+    Color uranusColor = new Color(148, 230, 235);
+    Color neptuneColor = new Color(66, 2, 242);
     
     int sunX, sunY;
     Long startTimeMs = null;
@@ -74,8 +77,9 @@ public class SolarSystem implements GameControlScene {
     Planet mars = new Planet(12,687, Color.RED,228);
     Planet jupiter = new Planet(12,4331, jupiterColor,778);
     Planet saturn = new Planet(12,10747, saturnColor, 1433);
-    Planet uranus = new Planet(12,30589, Color.BLUE,2872);
-    Planet neptune = new Planet(12,5, Color.BLUE,4495);
+    Planet uranus = new Planet(12,30589, uranusColor, 2872);
+    Planet neptune = new Planet(12,59800, neptuneColor, 4495);
+    Planet pluto = new Planet(12,59800, saturnColor, 6000);
     
    
     		
@@ -88,7 +92,40 @@ public class SolarSystem implements GameControlScene {
          * Add Earth's moon
          */
         earth.addMoon();
+        for(int m=0; m<2; m++) {
+        mars.addMoon();
+        }
+        for(int j=0; j<79; j++) {
+        jupiter.addMoon();
+        }
+        for(int s=0; s<82; s++) {
+        saturn.addMoon();
+        }
+        for(int u=0; u<27; u++) {
+        uranus.addMoon();
+        }
+        for(int n=0; n<14; n++) {
+        neptune.addMoon();
+        }
+        for(int p=0; p<5; p++) {
+        pluto.addMoon();
+        }
         
+        /*       | Number of
+        * Body   | moons
+        * -------+-----------+
+        * Sun    | N/A
+        * Mercury| 0
+        * Venus  | 0
+        * Earth  | 1
+        * Mars   | 2
+        * Jupiter| 79
+        * Saturn | 82
+        * Uranus | 27
+        * Neptune| 14
+        * Pluto  | 5 
+        */
+       
         sunX = CENTER_X - SUN_RADIUS_PIXELS;
         sunY = CENTER_Y - SUN_RADIUS_PIXELS;
         startTimeMs = System.currentTimeMillis();
@@ -134,7 +171,9 @@ public class SolarSystem implements GameControlScene {
         mars.draw(g, numDays);
         jupiter.draw(g, numDays);
         saturn.draw(g, numDays);
-        
+        uranus.draw(g, numDays);
+        neptune.draw(g, numDays);
+        pluto.draw(g, numDays);
     }
     
     @Override

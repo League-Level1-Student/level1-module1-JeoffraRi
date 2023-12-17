@@ -12,11 +12,11 @@ public class Hippo {
     String location;
     int startNeckSpeed = 15;
     int neckMoveDistance = 100;
-
+    Color bodyColor;
     /*
      * Constructor
      */
-    public Hippo(String location) {
+    public Hippo(String location, Color color) {
         this.location = location;
         
         setupPosition();
