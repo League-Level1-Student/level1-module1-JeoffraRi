@@ -10,14 +10,16 @@ public class Hippo {
      * Member variables
      */
     String location;
+    String name;
     int startNeckSpeed = 15;
     int neckMoveDistance = 100;
 
     /*
      * Constructor
      */
-    public Hippo(String location) {
+    public Hippo(String location,String hippoName) {
         this.location = location;
+        name = hippoName;
         
         setupPosition();
     }
@@ -26,8 +28,19 @@ public class Hippo {
         /*
          * Local variables
          */
+    	Color skyblue = new Color(0, 222, 252);
+    	Color actualorange = new Color(252, 122, 0);
         Color bodyColor = Color.GRAY;
-        String hippoName = "Hippie Hippo";
+        if(name.equals("Lizzie")) {
+        	bodyColor = Color.PINK;
+        }else if(name.equals("Henry")) {
+        	bodyColor = actualorange;
+        }else if(name.equals("Homer")) {
+        	bodyColor = Color.GREEN;
+        }else if(name.equals("Harry")) {
+        	bodyColor = skyblue;
+        }
+        String hippoName = name;
         
         drawScore(g, hippoName);
         
