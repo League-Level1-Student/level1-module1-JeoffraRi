@@ -15,9 +15,9 @@ public class Planet {
     int x, y, width, height;
     int diameter;
     
-    public Planet(int diameterPixels,int orbitalPeriod, Color Color, int distanceFromSun) {
+    public Planet(int diameterPixels,int orbitalPeriod, Color color, int distanceFromSun) {
     	this.orbitalPeriod = orbitalPeriod;
-    	this.color = Color;
+    	this.color = color;
     	this.distanceFromSun = distanceFromSun;
         this.diameter = diameterPixels;
     }
