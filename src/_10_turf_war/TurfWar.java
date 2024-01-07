@@ -9,7 +9,7 @@ public class TurfWar extends PApplet {
     class Player {
         /*
          * 1. Create a constructor for Player that takes all these variables in
-         * as parameters and initializes them using the this keyword.
+         * as parameters and initializes them using this keyword.
          */
         int x;
         int y;
@@ -20,7 +20,17 @@ public class TurfWar extends PApplet {
         int leftKey;
         int downKey;
         int rightKey;
-
+        public Player (int x, int y, int speed, int playerSize, int playerColor, int upKey, int leftKey, int downKey, int rightKey) {
+        	this.x = x;
+        	this.y = y;
+        	this.speed = speed;
+        	this.playerSize = playerSize;
+        	this.playerColor = x;
+        	this.upKey = upKey;
+        	this.leftKey = leftKey;
+        	this.downKey = downKey;
+        	this.rightKey = rightKey;
+        }
         /*
          * The member variables below do not need to be initialized in the
          * constructor.
@@ -36,12 +46,14 @@ public class TurfWar extends PApplet {
              * 2. Draw a rectangle to represent the the Player using its color,
              * coordinates and size.
              */
-            
+        	fill(playerColor);
+
+            rect(x, y, playerSize, playerSize);
         }
 
         void update() {
             /*
-             * This piece of codes makes the player move up without
+             * This piece of code makes the player move up without
              * leaving the bounds of the sketch if its up key is pressed.
              * 
              * Note: statsBoardLine is used instead of 0 because that is 
@@ -109,7 +121,8 @@ public class TurfWar extends PApplet {
      * Do not initialize them yet.
      */
 
-    
+    Player player1 = new Player();
+    Player player2 = new Player();
 
     // Do not change these variables
     boolean gameOver = false;

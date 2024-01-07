@@ -17,11 +17,9 @@ public class Hippo {
     /*
      * Constructor
      */
-<<<<<<< HEAD
+
     public Hippo(String location,String hippoName) {
-=======
-    public Hippo(String location, Color color) {
->>>>>>> 29bae19447536732a7acaa7ec05c7797d2bcd05b
+
         this.location = location;
         name = hippoName;
         
