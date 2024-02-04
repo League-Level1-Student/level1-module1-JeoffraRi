@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -16,6 +17,7 @@ public static void main(String[] args) {
 
 
 JTextField bigBird = new JTextField(10);
+JLabel label = new JLabel("answer:");
 
 Bin() {
 	JFrame frame = new JFrame();
@@ -24,6 +26,7 @@ Bin() {
 	JButton button = new JButton("Pingu");
 	panel.add(button);
 	frame.add(panel);
+	panel.add(label);
 	button.addActionListener(this);
 	panel.add(bigBird);
 	frame.pack();
@@ -57,6 +60,7 @@ public void actionPerformed(ActionEvent e) {
 	
 	String elmo = convert(bigBird.getText());
 	System.out.println(elmo);
+	label.setText(elmo);
 }
 
            
