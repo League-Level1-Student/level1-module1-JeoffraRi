@@ -30,6 +30,7 @@ Bin() {
 	button.addActionListener(this);
 	panel.add(bigBird);
 	frame.pack();
+	convert("Asher");
 	
 }
 
